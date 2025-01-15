@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemons V5</title>
+    <script src=
+     "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="../data/charged_moves.js"></script>
+    <script src="../data/cp_multiplier.js"></script>
+    <script src="../data/fast_moves.js"></script>
+    <script src="../data/generation.js"></script>
+    <script src="../data/pokemon_moves.js"></script>
+    <script src="../data/pokemon_type.js"></script>
+    <script src="../data/pokemon.js"></script>
+    <script src="../data/type_effectiveness.js"></script>
+    <script src="../data/class_type.js"></script>
+    <script src="../data/class_attack.js"></script>
+    <script src="../data/class_pokemon.js"></script>
+    <link rel="stylesheet" href="../css/v5.css">
+</head>
+<body id="body">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <div id="details" class="inactive">
+        <div id="cross" onclick="closeDetails()">Fermer</div>
+        <div id="card"></div>
+        <div id="big-img-container"></div>
+    </div>
+    <main>
+        <div class="nav">
+            <div class="buttons">
+                <div id="prevPage" class="prec">PREC</div>
+                <span id="pageCounter"></span>
+                <div id="nextPage" class="suiv">SUIV</div>
+            </div>
+            <div class="filter">
+                <p><input id="searchBox" name="pokemon" placeholder="Search by name"></p>
+                <p><input id="searchBoxGen" name="pokemon" placeholder="Search by gen"></p>
+                <p><input id="searchBoxType" name="pokemon" placeholder="Search by type"></p>
+            </div>
+        </div>
+        
+        <table id="table">
+            <thead id="thead"></thead>
+            <tbody id="pokemonList"></tbody>
+        </table>
+        <script src="./script_v5.js"></script>
+    </main>
+</body>
+</html>

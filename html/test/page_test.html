@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test filtre + pagination</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+    <link href="../css/v4.css" rel="stylesheet">
+    <!-- <script src="/vendor/components/jquery/jquery.min.js"></script> -->
+    <script src=
+     "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="../data/charged_moves.js"></script>
+    <script src="../data/cp_multiplier.js"></script>
+    <script src="../data/fast_moves.js"></script>
+    <script src="../data/generation.js"></script>
+    <script src="../data/pokemon_moves.js"></script>
+    <script src="../data/pokemon_type.js"></script>
+    <script src="../data/pokemon.js"></script>
+    <script src="../data/type_effectiveness.js"></script>
+    <script src="../data/class_type.js"></script>
+    <script src="../data/class_attack.js"></script>
+    <script src="../data/class_pokemon.js"></script>
+    <meta name="description" content="A collection of Pokemon Go Tools and API's">
+    <meta name="author" content="Christopher Hewett">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="web,pokemon,pokemongo,api,json">
+</head>
+<body>
+
+<div id="mainContent">
+
+
+<div id="pokemonDiv" style="display: none">
+
+
+    <div>
+        <p>
+            Search by name: <input id="searchBox" name="pokemon">
+        </p>
+        <p>
+            Search by gen: <input id="searchBoxGen" name="pokemon">
+        </p>
+        <p>
+            Search by type: <input id="searchBoxType" name="pokemon">
+        </p>
+    </div>
+
+    <div id="pagination">
+        <button id="prevPage">Previous Page</button>
+        <span id="pageCounter"></span>
+        <button id="nextPage">Next Page</button>
+    </div>
+    
+    
+    <div id="pokemonListTable">
+        <table>
+            <thead>
+            <tr>
+                <th>Pokemon ID</th>
+                <th>Pokemon Name</th>
+            </tr>
+            </thead>
+            <tbody id="pokemonList">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+<script src="./page_test.js"></script>
+
+
+
+
+</div>
+
+</body>
+</html>

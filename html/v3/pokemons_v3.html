@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemons V2</title>
+    <title>Pokemons V3</title>
     <script src=
      "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
@@ -18,9 +18,14 @@
     <script src="../data/class_type.js"></script>
     <script src="../data/class_attack.js"></script>
     <script src="../data/class_pokemon.js"></script>
-    <link rel="stylesheet" href="../css/v2.css">
+    <link rel="stylesheet" href="../css/v3.css">
 </head>
 <body>
+    <div id="details" class="inactive">
+        <div id="cross" onclick="closeDetails()">Fermer</div>
+        <div id="card"></div>
+        <div id="big-img-container"></div>
+    </div>
     <main>
         <div class="buttons">
             <div id="prec" class="prec">PREC</div>
@@ -31,7 +36,7 @@
             <thead id="thead"></thead>
             <tbody id="tbody"></tbody>
         </table>
-        <script src="./script_v2.js"></script>
+        <script src="./script_v3.js"></script>
     </main>
 </body>
 </html>

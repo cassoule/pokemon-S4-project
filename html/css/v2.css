@@ -6,15 +6,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90vh;
+    min-height: 100vh;
 }
 
 main {
     padding: 1em;
     width: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: top;
+    flex-direction: row;
+    justify-content: center;
     gap: 1em;
 }
 
@@ -22,8 +22,10 @@ table {
     border: solid 5px#8a2be2;
     background-color: #8a2be2;
     padding: .1em;
+    margin-bottom: 2em;
     border-radius: .5em;
     min-width: 100%;
+    width: max-content;
 }
 
 thead{
@@ -53,9 +55,15 @@ tbody > tr > td{
 .buttons{
     position: sticky;
     top: 10em;
-    transform: translateX(-10em);
-    gap: .5em;
+    gap: 1em;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    background-color: #892be23f;
+    padding: 0 .4em;
+    border-radius: 1em;
+    height: min-content;
 }
 
 .buttons > div{
@@ -64,18 +72,35 @@ tbody > tr > td{
     padding: .5em;
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-weight: 600;
     border: solid 3px #8a2be2;
-    border-radius: 2em;
+    border-radius: .8em;
     transition: .2s ease-out;
     user-select: none;
+    height: 1.2em;
 }
 
 .buttons > div:hover{
     background-color: #8a2be2;
 }
 
+.buttons > div.inactive{
+    background-color: gray;
+    border: solid 3px transparent;
+    cursor: not-allowed;
+}
+
+.buttons > div.inactive:active{
+    transform: scale(1);
+}
+
 .buttons > div:active{
     transform: scale(0.9);
+}
+
+.compteur{
+    font-size: 1.1em;
+    font-weight: 600;
 }

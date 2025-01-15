@@ -1,7 +1,9 @@
+// Fonction pour ajouter des zéros à gauche d'un nombre
 function padLeft(nr, n, str){
     return Array(n-String(nr).length+1).join(str||'0')+nr;
 }
 
+// Création d'une nouvelle ligne de tableau avec des en-têtes
 let row = $('<tr/>');
 row.append($('<td/>').html("ID"));
 row.append($('<td/>').html("NAME"));
@@ -13,7 +15,9 @@ row.append($('<td/>').html("DEF"));
 row.append($('<td/>').html("IMG"));
 $("#thead").append(row);
 
+// Afficher tous les pokemons ligne par ligne
 for (const [pokemon_id, pokemon_value] of Object.entries(Pokemon.all_pokemons)){
+    // Création de la ligne d'affichage du pokemon
     let row = $('<tr/>');
     row.append($('<td/>').html(pokemon_value.pokemon_id));
     row.append($('<td/>').html(pokemon_value.pokemon_name));
@@ -40,7 +44,7 @@ for (const [pokemon_id, pokemon_value] of Object.entries(Pokemon.all_pokemons)){
     row.append($('<td/>').html(pokemon_value.base_defense));
     let image = padLeft(pokemon_id, 3);  // exemple : pokemon_id = 4 -> image = "004"
     let url = `${image}MS.webp"/>`
-    if (pokemon_id > 809) url = `${image}.webp"/>`;
     row.append($('<td/>').html(`<img src="../webp/sprites/${url}`));
+    // Ajout de la ligne a la table
     $("#table").append(row);
 }

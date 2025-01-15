@@ -1,7 +1,9 @@
+// Fonction pour ajouter des zéros à gauche d'un nombre
 function padLeft(nr, n, str){
     return Array(n-String(nr).length+1).join(str||'0')+nr;
 }
 
+// Création d'une nouvelle ligne de tableau avec des en-têtes
 let row = $('<tr/>');
 row.append($('<td/>').html("ID"));
 row.append($('<td/>').html("NAME"));
@@ -13,52 +15,21 @@ row.append($('<td/>').html("DEF"));
 row.append($('<td/>').html("IMG"));
 $("#thead").append(row);
 
-// for (const [pokemon_id, pokemon_value] of Object.entries(Pokemon.all_pokemons)){
-//     let row = $('<tr/>');
-//     row.append($('<td/>').html(pokemon_value.pokemon_id));
-//     row.append($('<td/>').html(pokemon_value.pokemon_name));
-//     let gen_nbr = 0;
-//     for (const [gen, gen_pokemons] of Object.entries(generation)){
-//         for (let i = 0; i < gen_pokemons.length; i++){
-//             if (gen_pokemons[i].id === pokemon_value.pokemon_id){
-//                 gen_nbr = gen_pokemons[i].generation_number;
-//                 break;
-//             }
-//         }
-//         if (gen_nbr !== 0){
-//             break;
-//         }
-//     }
-//     row.append($('<td/>').html(gen_nbr));
-//     if (pokemon_value.type.length == 1){
-//         row.append($('<td/>').html(pokemon_value.type));
-//     }else{
-//         row.append($('<td/>').html(`${pokemon_value.type[0]} & ${pokemon_value.type[1]}`));
-//     }
-//     row.append($('<td/>').html(pokemon_value.base_stamina));
-//     row.append($('<td/>').html(pokemon_value.base_attack));
-//     row.append($('<td/>').html(pokemon_value.base_defense));
-//     let image = padLeft(pokemon_id, 3);  // exemple : pokemon_id = 4 -> image = "004"
-//     let url = `${image}MS.webp"/>`
-//     if (pokemon_id > 809) url = `${image}.webp"/>`;
-//     row.append($('<td/>').html(`<img src="../webp/sprites/${url}`));
-//     $("#table").append(row);
-// }
-
-// Define variables to keep track of current page and total number of pages
+// Initialisation des variables pour le compteur de pages
 let currentPage = 0;
 const pageSize = 25;
 const totalRows = Object.keys(Pokemon.all_pokemons).length;
 const totalPages = Math.ceil(totalRows / pageSize);
 
-// Function to render the table for the current page
+// Fonction pour afficher les pokemons de la page actuelle
 function renderTable(page) {
     $("#tbody").empty(); // Clear previous rows
     
-    // Loop through pokemons for the current page
+    // Parcourir chaque pokemon de la page actuelle
     for (let i = page * pageSize; i < Math.min((page + 1) * pageSize, totalRows); i++) {
         const [pokemon_id, pokemon_value] = Object.entries(Pokemon.all_pokemons)[i];
         
+        // Création de la ligne
         let row = $('<tr/>');
         row.append($('<td/>').html(pokemon_value.pokemon_id));
         row.append($('<td/>').html(pokemon_value.pokemon_name));
@@ -87,11 +58,26 @@ function renderTable(page) {
         let url = `${image}MS.webp"/>`
         if (pokemon_id > 809) url = `${image}.webp"/>`;
         row.append($('<td/>').html(`<img src="../webp/sprites/${url}`));
+        // Ajout de la ligne à la table
         $("#tbody").append(row);
+    }
+    
+    // Mise à jour du compteur de page
+    $(".compteur").html(`${padLeft(currentPage + 1, totalPages.toString().length)}/${totalPages}`);
+
+    let prec = document.getElementById("prec");
+    let suiv = document.getElementById("suiv");
+    if (currentPage === 0){
+        prec.classList.add("inactive");
+    } else if (currentPage === totalPages - 1){
+        suiv.classList.add("inactive");
+    } else {
+        prec.classList.remove("inactive");
+        suiv.classList.remove("inactive");
     }
 }
 
-// Function to handle click on "Next" button
+// Evenement pour passer à la page suivante
 $(".suiv").on("click", function() {
     if (currentPage < totalPages - 1) {
         currentPage++;
@@ -99,7 +85,7 @@ $(".suiv").on("click", function() {
     }
 });
 
-// Function to handle click on "Previous" button
+// Evenement pour passer à la page précédente
 $(".prec").on("click", function() {
     if (currentPage > 0) {
         currentPage--;
@@ -107,5 +93,6 @@ $(".prec").on("click", function() {
     }
 });
 
-// Initial rendering of the table
+
+// Initialisation de la table
 renderTable(currentPage);

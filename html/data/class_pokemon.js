@@ -7,7 +7,8 @@ class Pokemon {
     this.base_defense = base_defense;
     this.base_stamina = base_stamina;
     this.type = [];
-    this.attack = [];
+    this.charged_attack = [];
+    this.fast_attack = [];
     Pokemon.all_pokemons[this.pokemon_id] = this;
   }
 
@@ -81,16 +82,16 @@ function import_pokemon() {
     pokemon_moves.forEach(element => {
         if (element.form === "Normal") {
             element.charged_moves.forEach(elem => {
-                Pokemon.all_pokemons[element.pokemon_id].attack.push(elem);
+                Pokemon.all_pokemons[element.pokemon_id].charged_attack.push(elem);
             });
             element.elite_charged_moves.forEach(elem => {
-                Pokemon.all_pokemons[element.pokemon_id].attack.push(elem);
+                Pokemon.all_pokemons[element.pokemon_id].charged_attack.push(elem);
             });
             element.elite_fast_moves.forEach(elem => {
-                Pokemon.all_pokemons[element.pokemon_id].attack.push(elem);
+                Pokemon.all_pokemons[element.pokemon_id].fast_attack.push(elem);
             });
             element.fast_moves.forEach(elem => {
-                Pokemon.all_pokemons[element.pokemon_id].attack.push(elem);
+                Pokemon.all_pokemons[element.pokemon_id].fast_attack.push(elem);
             });
         }
     });
