@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon - Test</title>
+</head>
+<body>
+    <main>
+        <input type="text" name="Paramètre" id="param" placeholder="Paramètre">
+        <a href="#" id="getPokemonsByType" onclick="console.table(getPokemonsByType(input.value))">getPokemonsByType(<span>typeName</span>)</a>
+        <a href="#" id="getPokemonsByAttack" onclick="console.table(getPokemonsByAttack(input.value))">getPokemonsByAttack(<span>attackName</span>)</a>
+        <a href="#" id="getAttacksByType" onclick="console.table(getAttacksByType(input.value))">getAttacksByType(<span>typeName</span>)</a>
+        <a href="#" id="sortPokemonByName" onclick="console.table(sortPokemonByName(input.value))">sortPokemonByName()</a>
+        <a href="#" id="sortPokemonByStamina" onclick="console.table(sortPokemonByStamina(input.value))">sortPokemonByStamina()</a>
+        <a href="#" id="getWeakestEnemies" onclick="console.table(getWeakestEnemies(input.value))">getWeakestEnemies(<span>attackName</span>)</a>
+        <a href="#" id="getBestAttackTypesForEnemy" onclick="console.table(getBestAttackTypesForEnemy(input.value))">getBestAttackTypesForEnemy(<span>pokemonName</span>)</a>
+    </main>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        main{
+            padding: 1em;
+            width: min-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1em;
+        }
+
+        ::placeholder{
+            color: #892be2a9;
+        }
+
+        input, a{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 1.2em;
+            color: black;
+            text-decoration: none;
+            padding: .2em .5em;
+            border-radius: .2em;
+            transition: .1s ease-out;
+        }
+
+        input{
+            margin: 0 0 1em 0;
+            border: solid #8a2be2;
+            font-size: 1.5em;
+        }
+
+        a:hover{
+            background-color: #892be23f;
+        }
+
+        a:active{
+            color: #8a2be2;
+            transition: none;
+        }
+
+        a > span{
+            font-weight: 300;
+            text-decoration: underline;
+        }
+    </style>
+</body>
+<script src="../data/charged_moves.js"></script>
+<script src="../data/cp_multiplier.js"></script>
+<script src="../data/fast_moves.js"></script>
+<script src="../data/generation.js"></script>
+<script src="../data/pokemon_moves.js"></script>
+<script src="../data/pokemon_type.js"></script>
+<script src="../data/pokemon.js"></script>
+<script src="../data/type_effectiveness.js"></script>
+<script src="../data/class_type.js"></script>
+<script src="../data/class_attack.js"></script>
+<script src="../data/class_pokemon.js"></script>
+<script src="./test.js"></script>
+</html>

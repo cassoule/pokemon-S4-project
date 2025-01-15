@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src=
+     "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="./data/charged_moves.js"></script>
+    <script src="./data/cp_multiplier.js"></script>
+    <script src="./data/fast_moves.js"></script>
+    <script src="./data/generation.js"></script>
+    <script src="./data/pokemon_moves.js"></script>
+    <script src="./data/pokemon_type.js"></script>
+    <script src="./data/pokemon.js"></script>
+    <script src="./data/type_effectiveness.js"></script>
+    <script src="./data/class_type.js"></script>
+    <script src="./data/class_attack.js"></script>
+    <script src="./data/class_pokemon.js"></script>
+</head>
+<body>
+    <main>
+        <table id="table">
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
+        </table>
+
+        <script>
+            function padLeft(nr, n, str){
+                return Array(n-String(nr).length+1).join(str||'0')+nr;
+            }
+            let cols = ["pokemon_id", "pokemon_name", "generation", "type", "base_stamina", "base_attack", "base_defense", "image"];
+            let row = $('<tr/>');
+            for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+                let val = cols[colIndex];
+                if (val == null || val == undefined) val = "";
+                row.append($('<td/>').html(val));
+            }
+            $("#thead").append(row);
+
+            let tbody = $('<tbody/>');
+            for (const [pokemon_id, pokemon_value] of Object.entries(Pokemon.all_pokemons)){
+                let row = $('<tr/>');
+                for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+                    let val = pokemon_value[cols[colIndex]];
+                    if (val == null || val == undefined) val = "";
+                    row.append($('<td/>').html(val));
+                }
+                let image = padLeft(pokemon_id, 3);
+                let td = $('<td/>');
+                td.append($(`<img src="webp/sprites/${image}MS.webp"/>`))
+                row.append($('<td/>').html(`<img src="webp/sprites/${image}MS.webp"/>`));
+                // Adding each row to the table
+                $("#table").append(row);
+            }
+            
+        </script>
+    </main>
+</body>
+
+</html>
